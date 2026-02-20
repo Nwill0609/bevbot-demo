@@ -1,0 +1,13 @@
+command:
+  - uvicorn
+  - app:app
+  - --host
+  - 0.0.0.0
+  - --port
+  - "8000"
+
+resources:
+  - name: bevbot-supervisor
+    serving_endpoint:
+      name: mas-979cea15-endpoint
+      permission: CAN_QUERY
