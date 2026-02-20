@@ -49,6 +49,19 @@ const styles: Record<string, React.CSSProperties> = {
     color: '#6ee7b7',
     opacity: 0.8,
   },
+  backButton: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+    padding: '6px 12px',
+    background: 'rgba(52, 211, 153, 0.1)',
+    border: '1px solid rgba(52, 211, 153, 0.3)',
+    borderRadius: '8px',
+    color: '#6ee7b7',
+    fontSize: '13px',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
+  },
   poweredBy: {
     marginLeft: 'auto',
     fontSize: '11px',
@@ -187,6 +200,7 @@ export default function App() {
       <style>{`
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
         .prompt-card:hover { background: rgba(52, 211, 153, 0.15) !important; border-color: rgba(52, 211, 153, 0.5) !important; transform: translateY(-1px); }
+        .back-button:hover { background: rgba(52, 211, 153, 0.2) !important; border-color: rgba(52, 211, 153, 0.6) !important; color: #a7f3d0 !important; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(52, 211, 153, 0.3); border-radius: 3px; }
@@ -198,6 +212,15 @@ export default function App() {
           <span style={styles.title}>BevBot</span>
           <span style={styles.subtitle}>AI Beverage Operations Assistant</span>
         </div>
+        {!isEmpty && (
+          <button
+            className="back-button"
+            style={styles.backButton}
+            onClick={() => setMessages([])}
+          >
+            ← New Chat
+          </button>
+        )}
         <div style={styles.poweredBy}>
           <div style={styles.dot} />
           Databricks Agent Bricks
